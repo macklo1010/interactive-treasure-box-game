@@ -4,6 +4,7 @@
   import path from 'path';
 
   export default defineConfig({
+    base: '/interactive-treasure-box-game/',
     plugins: [react()],
     resolve: {
       extensions: ['.js', '.jsx', '.ts', '.tsx', '.json'],
