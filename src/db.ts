@@ -49,7 +49,7 @@ async function hashPassword(password: string): Promise<string> {
 
 export async function initDB(): Promise<void> {
   const { default: initSqlJs } = await import('sql.js');
-  const SQL = await initSqlJs({ locateFile: () => '/sql-wasm-browser.wasm' });
+  const SQL = await initSqlJs({ locateFile: (file: string) => `${import.meta.env.BASE_URL}${file}` });
   const saved = await loadFromIDB();
   db = saved ? new SQL.Database(saved) : new SQL.Database();
   db.run(`
